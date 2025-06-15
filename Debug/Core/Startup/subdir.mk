@@ -16,7 +16,7 @@ S_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Core/Startup/%.o: ../Core/Startup/%.s Core/Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m33 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m33 -g3 -DDEBUG -c -I"D:/develop/STM32/workspace/stm32h503-fw/App/ap" -I"D:/develop/STM32/workspace/stm32h503-fw/App/bsp" -I"D:/develop/STM32/workspace/stm32h503-fw/App/common/hw/include" -I"D:/develop/STM32/workspace/stm32h503-fw/App/common/core" -I"D:/develop/STM32/workspace/stm32h503-fw/App/common" -I"D:/develop/STM32/workspace/stm32h503-fw/App/hw" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-Core-2f-Startup
 
